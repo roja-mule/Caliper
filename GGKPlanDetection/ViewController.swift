@@ -124,6 +124,5 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         measuring = false
-        line  = nil
     }
 }
