@@ -1,11 +1,3 @@
-//
-//  Extensions.swift
-//  GGKPlanDetection
-//
-//  Created by Bhanuprasad Gollapudi on 22/08/18.
-//  Copyright © 2018 Bhanuprasad Gollapudi. All rights reserved.
-//
-
 import Foundation
 import ARKit
 
@@ -49,6 +41,7 @@ extension SCNVector3: Equatable {
     }
     
     init(_ vec: vector_float3) {
+        self.init()
         self.x = vec.x
         self.y = vec.y
         self.z = vec.z
@@ -183,7 +176,6 @@ func *= (left: inout SCNVector3, right: Float) {
 // MARK: - SCNMaterial extensions
 
 extension SCNMaterial {
-    
     static func material(withDiffuse diffuse: Any?, respondsToLighting: Bool = true) -> SCNMaterial {
         let material = SCNMaterial()
         material.diffuse.contents = diffuse
@@ -199,3 +191,10 @@ extension SCNMaterial {
     }
 }
 
+func + (left: SCNVector3, right: SCNVector3) -> SCNVector3 {
+    return SCNVector3Make(left.x + right.x, left.y + right.y, left.z + right.z)
+}
+
+func - (left: SCNVector3, right: SCNVector3) -> SCNVector3 {
+    return SCNVector3Make(left.x - right.x, left.y - right.y, left.z - right.z)
+}

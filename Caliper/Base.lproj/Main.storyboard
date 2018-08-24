@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,42 +22,69 @@
                                 <color key="backgroundColor" red="1" green="0.27706744080000001" blue="0.3425773299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </arscnView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaV-11-jji">
-                                <rect key="frame" x="0.0" y="50" width="375" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="0.0" y="50" width="375" height="25.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpV-sR-nyc">
-                                <rect key="frame" x="20" y="587" width="335" height="30"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Start Camera">
-                                    <color key="titleColor" red="1" green="0.27706744078326784" blue="0.34257732990845602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="startButtonAction:" destination="BV1-FR-VrT" eventType="touchUpInside" id="RBI-HJ-8D9"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6O-Gc-DPX">
-                                <rect key="frame" x="181.5" y="323" width="11" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="175" y="309.5" width="26.5" height="48"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                 <color key="textColor" red="1" green="0.27706744080000001" blue="0.3425773299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9nW-ez-v93">
+                                <rect key="frame" x="10" y="594" width="355" height="33"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pLF-C4-udD">
+                                        <rect key="frame" x="0.0" y="0.0" width="118.5" height="33"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        <size key="titleShadowOffset" width="0.0" height="0.10000000000000001"/>
+                                        <state key="normal" title="Start">
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="startTapped:" destination="BV1-FR-VrT" eventType="touchUpInside" id="F9i-dj-bEy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bM9-Mx-lSN">
+                                        <rect key="frame" x="118.5" y="0.0" width="118" height="33"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        <size key="titleShadowOffset" width="0.0" height="0.10000000000000001"/>
+                                        <state key="normal" title="End">
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="endTapped:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Dxk-Db-iJo"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEA-hU-w2N">
+                                        <rect key="frame" x="236.5" y="0.0" width="118.5" height="33"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        <size key="titleShadowOffset" width="0.0" height="0.10000000000000001"/>
+                                        <state key="normal" title="Clear">
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="clearTapped:" destination="BV1-FR-VrT" eventType="touchUpInside" id="3h8-jJ-Inf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="4uf-yE-0rM" firstAttribute="bottom" secondItem="9nW-ez-v93" secondAttribute="bottom" constant="40" id="10Y-7p-H6R"/>
                             <constraint firstItem="bbI-6O-hUo" firstAttribute="top" secondItem="c2R-vA-Fh2" secondAttribute="top" id="2U2-Ej-bui"/>
                             <constraint firstItem="bbI-6O-hUo" firstAttribute="trailing" secondItem="4uf-yE-0rM" secondAttribute="trailing" id="3BJ-p4-tM7"/>
-                            <constraint firstItem="4uf-yE-0rM" firstAttribute="trailing" secondItem="mpV-sR-nyc" secondAttribute="trailing" constant="20" id="7L1-BO-ztn"/>
                             <constraint firstItem="bbI-6O-hUo" firstAttribute="centerY" secondItem="c2R-vA-Fh2" secondAttribute="centerY" id="Cyk-Yh-DLe"/>
                             <constraint firstItem="PaV-11-jji" firstAttribute="top" secondItem="4uf-yE-0rM" secondAttribute="top" constant="30" id="FXm-Du-cgR"/>
                             <constraint firstItem="4uf-yE-0rM" firstAttribute="bottom" secondItem="bbI-6O-hUo" secondAttribute="bottom" id="IYq-L4-0Mp"/>
                             <constraint firstItem="N6O-Gc-DPX" firstAttribute="centerX" secondItem="c2R-vA-Fh2" secondAttribute="centerX" id="R9F-hA-Yey"/>
+                            <constraint firstItem="9nW-ez-v93" firstAttribute="leading" secondItem="4uf-yE-0rM" secondAttribute="leading" constant="10" id="Sbl-cO-Y77"/>
                             <constraint firstItem="bbI-6O-hUo" firstAttribute="centerX" secondItem="c2R-vA-Fh2" secondAttribute="centerX" id="VeY-Fc-PvM"/>
                             <constraint firstItem="PaV-11-jji" firstAttribute="trailing" secondItem="4uf-yE-0rM" secondAttribute="trailing" id="Xlq-T7-b59"/>
-                            <constraint firstItem="mpV-sR-nyc" firstAttribute="centerX" secondItem="c2R-vA-Fh2" secondAttribute="centerX" id="b4f-0s-Igf"/>
-                            <constraint firstItem="mpV-sR-nyc" firstAttribute="leading" secondItem="4uf-yE-0rM" secondAttribute="leading" constant="20" id="byL-9f-cNY"/>
-                            <constraint firstItem="4uf-yE-0rM" firstAttribute="bottom" secondItem="mpV-sR-nyc" secondAttribute="bottom" constant="50" id="pvX-ba-bXE"/>
+                            <constraint firstItem="4uf-yE-0rM" firstAttribute="trailing" secondItem="9nW-ez-v93" secondAttribute="trailing" constant="10" id="mVw-sx-8xw"/>
                             <constraint firstItem="PaV-11-jji" firstAttribute="leading" secondItem="4uf-yE-0rM" secondAttribute="leading" id="qQf-dq-mL1"/>
                             <constraint firstItem="N6O-Gc-DPX" firstAttribute="centerY" secondItem="c2R-vA-Fh2" secondAttribute="centerY" id="rNm-Vy-aEV"/>
                             <constraint firstItem="bbI-6O-hUo" firstAttribute="leading" secondItem="4uf-yE-0rM" secondAttribute="leading" id="t3Y-3I-Hcn"/>
@@ -68,7 +94,6 @@
                     <connections>
                         <outlet property="aimLabel" destination="N6O-Gc-DPX" id="HkV-Cx-B8j"/>
                         <outlet property="sceneView" destination="bbI-6O-hUo" id="tsO-BP-vbE"/>
-                        <outlet property="startCameraButton" destination="mpV-sR-nyc" id="x8P-pi-7ph"/>
                         <outlet property="statusLabel" destination="PaV-11-jji" id="say-T0-KNZ"/>
                     </connections>
                 </viewController>

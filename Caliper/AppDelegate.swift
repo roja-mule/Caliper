@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  GGKPlanDetection
-//
-//  Created by Bhanuprasad Gollapudi on 21/08/18.
-//  Copyright © 2018 Bhanuprasad Gollapudi. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
