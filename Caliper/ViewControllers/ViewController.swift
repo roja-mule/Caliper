@@ -6,61 +6,69 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet var sceneView: ARSCNView!
-    @IBOutlet weak var startCameraButton: UIButton!
     @IBOutlet weak var aimLabel: UILabel!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     fileprivate let sessionConfig = ARWorldTrackingConfiguration()
     fileprivate var location: CGPoint? = nil
     
     fileprivate let session = ARSession()
     fileprivate let vectorZero = SCNVector3()
-    fileprivate var measuring = false
+    fileprivate var isMeasuring = false
     fileprivate var startValue = SCNVector3()
     fileprivate var endValue = SCNVector3()
-    fileprivate var line: LineNode?
+    fileprivate var currentLine: Line?
     
-    //MARK: - ViewLifeCycle
+    //MARK: - ViewLifeCycle -
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         setupScene()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        
         UIApplication.shared.isIdleTimerDisabled = true
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
         session.pause()
     }
     
-    
     //MARK: -  Action Methods
+    
     @IBAction func startTapped(_ sender: UIButton){
         resetValues()
-        measuring = true
-        if let startPos = sceneView.realWorldVector(screenPos: view.center) {
-            line = LineNode(startPos: startPos, sceneV: sceneView)
+        isMeasuring = true
+        
+        currentLine?.removeFromParentNode()
+        
+        if let startPos = sceneView.realWorldVector(screenPosition: view.center) {
+            currentLine = Line(sceneView: sceneView, startVector: startPos)
         }
     }
     
     @IBAction func endTapped(_ sender: UIButton){
-        measuring = false
+        isMeasuring = false
     }
     
     @IBAction func clearTapped(_ sender : UIButton){
-        measuring = false
-        line  = nil
+        isMeasuring = false
+        currentLine?.removeFromParentNode()
+        currentLine  = nil
     }
+}
+extension ViewController {
     
     //MARK: - Custom Methods
+    
     private func setupScene() {
         sceneView.delegate = self
+        indicator.startAnimating()
         sceneView.session = session
         session.run(sessionConfig, options: [.resetTracking, .removeExistingAnchors])
         
@@ -68,7 +76,7 @@ class ViewController: UIViewController {
     }
     
     func resetValues() {
-        measuring = false
+        isMeasuring = false
         startValue = SCNVector3()
         endValue =  SCNVector3()
         updateResultLabel(0.0)
@@ -79,8 +87,24 @@ class ViewController: UIViewController {
         let inch = cm*0.3937007874
         statusLabel.text = String(format: "%.2f cm / %.2f\"", cm, inch)
     }
-
+    
+    fileprivate func detectObjects() {
+        guard let worldPosition = sceneView.realWorldVector(screenPosition: view.center) else { return }
+        
+        indicator.stopAnimating()
+        
+        if isMeasuring {
+            if startValue == vectorZero {
+                startValue = worldPosition
+            }
+            endValue = worldPosition
+            currentLine?.update(to: endValue)
+            statusLabel.text = currentLine?.distance(to: endValue) ?? "Calculating…"
+        }
+    }
 }
+
+//MARK:- ARSCNViewDelegate Methods -
 
 extension ViewController: ARSCNViewDelegate{
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
@@ -89,18 +113,15 @@ extension ViewController: ARSCNViewDelegate{
         }
     }
     
-    func detectObjects() {
-        if let worldPos = sceneView.realWorldVector(screenPos: view.center) {
-            if measuring {
-                if startValue == vectorZero {
-                    startValue = worldPos
-                }
-                endValue = worldPos
-                updateResultLabel(startValue.distance(from: endValue))
-                debugPrint(line ?? "")
-                let length = line?.updatePosition(pos: worldPos, camera: self.sceneView.session.currentFrame?.camera)
-                debugPrint(length ?? 0.0)
-            }
-        }
+    func session(_ session: ARSession, didFailWithError error: Error) {
+        statusLabel.text = "Error occurred"
+    }
+    
+    func sessionWasInterrupted(_ session: ARSession) {
+        statusLabel.text = "Interrupted"
+    }
+    
+    func sessionInterruptionEnded(_ session: ARSession) {
+        statusLabel.text = "Interruption ended"
     }
 }

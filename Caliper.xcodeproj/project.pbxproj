@@ -13,11 +13,10 @@
 		31C3FF1D212EFB91000D100E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31C3FF1C212EFB91000D100E /* Assets.xcassets */; };
 		31C3FF20212EFB91000D100E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31C3FF1E212EFB91000D100E /* LaunchScreen.storyboard */; };
 		31C3FF3C212EFE8E000D100E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C3FF34212EFE8D000D100E /* ViewController.swift */; };
-		31C3FF3D212EFE8E000D100E /* CoreGrpahics+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C3FF36212EFE8D000D100E /* CoreGrpahics+Extension.swift */; };
 		31C3FF3E212EFE8E000D100E /* CylinderLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C3FF37212EFE8D000D100E /* CylinderLine.swift */; };
-		31C3FF3F212EFE8E000D100E /* LineNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C3FF38212EFE8D000D100E /* LineNode.swift */; };
-		31C3FF40212EFE8E000D100E /* MeasurementUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C3FF39212EFE8D000D100E /* MeasurementUnit.swift */; };
-		31C3FF41212EFE8E000D100E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C3FF3B212EFE8E000D100E /* Extensions.swift */; };
+		410919FD21340A0B00F886BB /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410919FC21340A0B00F886BB /* Line.swift */; };
+		410919FF21340E2C00F886BB /* SCNVector+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410919FE21340E2C00F886BB /* SCNVector+Extension.swift */; };
+		41091A0121340F3000F886BB /* ARSCNView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41091A0021340F2F00F886BB /* ARSCNView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,11 +28,10 @@
 		31C3FF1F212EFB91000D100E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		31C3FF21212EFB91000D100E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31C3FF34212EFE8D000D100E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		31C3FF36212EFE8D000D100E /* CoreGrpahics+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CoreGrpahics+Extension.swift"; sourceTree = "<group>"; };
 		31C3FF37212EFE8D000D100E /* CylinderLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CylinderLine.swift; sourceTree = "<group>"; };
-		31C3FF38212EFE8D000D100E /* LineNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineNode.swift; sourceTree = "<group>"; };
-		31C3FF39212EFE8D000D100E /* MeasurementUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementUnit.swift; sourceTree = "<group>"; };
-		31C3FF3B212EFE8E000D100E /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		410919FC21340A0B00F886BB /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		410919FE21340E2C00F886BB /* SCNVector+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector+Extension.swift"; sourceTree = "<group>"; };
+		41091A0021340F2F00F886BB /* ARSCNView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARSCNView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,10 +88,8 @@
 		31C3FF35212EFE8D000D100E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				31C3FF36212EFE8D000D100E /* CoreGrpahics+Extension.swift */,
+				410919FC21340A0B00F886BB /* Line.swift */,
 				31C3FF37212EFE8D000D100E /* CylinderLine.swift */,
-				31C3FF38212EFE8D000D100E /* LineNode.swift */,
-				31C3FF39212EFE8D000D100E /* MeasurementUnit.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -101,7 +97,8 @@
 		31C3FF3A212EFE8E000D100E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				31C3FF3B212EFE8E000D100E /* Extensions.swift */,
+				410919FE21340E2C00F886BB /* SCNVector+Extension.swift */,
+				41091A0021340F2F00F886BB /* ARSCNView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -178,13 +175,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				410919FF21340E2C00F886BB /* SCNVector+Extension.swift in Sources */,
 				31C3FF3C212EFE8E000D100E /* ViewController.swift in Sources */,
-				31C3FF3F212EFE8E000D100E /* LineNode.swift in Sources */,
-				31C3FF3D212EFE8E000D100E /* CoreGrpahics+Extension.swift in Sources */,
+				41091A0121340F3000F886BB /* ARSCNView+Extension.swift in Sources */,
 				31C3FF14212EFB91000D100E /* AppDelegate.swift in Sources */,
-				31C3FF40212EFE8E000D100E /* MeasurementUnit.swift in Sources */,
+				410919FD21340A0B00F886BB /* Line.swift in Sources */,
 				31C3FF3E212EFE8E000D100E /* CylinderLine.swift in Sources */,
-				31C3FF41212EFE8E000D100E /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,7 +325,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = PPFYHL7736;
 				INFOPLIST_FILE = Caliper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -337,9 +333,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.companyname.Caliper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devggktech.Caliper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "8ba06643-0e5c-42c5-a772-3f54e423ea53";
+				PROVISIONING_PROFILE_SPECIFIER = DevWildCardProvisioningProfile;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -350,7 +347,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = PPFYHL7736;
 				INFOPLIST_FILE = Caliper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -358,9 +355,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.companyname.Caliper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devggktech.Caliper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "8ba06643-0e5c-42c5-a772-3f54e423ea53";
+				PROVISIONING_PROFILE_SPECIFIER = DevWildCardProvisioningProfile;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
