@@ -45,7 +45,7 @@ class ViewController: UIViewController {
         resetValues()
         isMeasuring = true
         
-        currentLine?.removeFromParentNode()
+      //  currentLine?.removeFromParentNode()
         
         if let startPos = sceneView.realWorldVector(screenPosition: view.center) {
             currentLine = Line(sceneView: sceneView, startVector: startPos)
