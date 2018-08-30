@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		319531CA2137F4DB006C2CDF /* DraggableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319531C92137F4DB006C2CDF /* DraggableButton.swift */; };
 		31C3FF14212EFB91000D100E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C3FF13212EFB91000D100E /* AppDelegate.swift */; };
 		31C3FF16212EFB91000D100E /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 31C3FF15212EFB91000D100E /* art.scnassets */; };
 		31C3FF1B212EFB91000D100E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31C3FF19212EFB91000D100E /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		319531C92137F4DB006C2CDF /* DraggableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableButton.swift; sourceTree = "<group>"; };
 		31C3FF10212EFB91000D100E /* Caliper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Caliper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31C3FF13212EFB91000D100E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31C3FF15212EFB91000D100E /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			children = (
 				410919FE21340E2C00F886BB /* SCNVector+Extension.swift */,
 				41091A0021340F2F00F886BB /* ARSCNView+Extension.swift */,
+				319531C92137F4DB006C2CDF /* DraggableButton.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				4421AB922137C14B0089959A /* DataManager.swift in Sources */,
 				31C3FF14212EFB91000D100E /* AppDelegate.swift in Sources */,
 				410919FD21340A0B00F886BB /* Line.swift in Sources */,
+				319531CA2137F4DB006C2CDF /* DraggableButton.swift in Sources */,
 				4421AB942137CB390089959A /* Measurement.swift in Sources */,
 				31C3FF3E212EFE8E000D100E /* CylinderLine.swift in Sources */,
 			);

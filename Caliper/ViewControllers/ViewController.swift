@@ -8,7 +8,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet var sceneView: ARSCNView!
-    @IBOutlet weak var aimLabel: UILabel!
+    @IBOutlet weak var aimView: UIView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     fileprivate let sessionConfig = ARWorldTrackingConfiguration()
