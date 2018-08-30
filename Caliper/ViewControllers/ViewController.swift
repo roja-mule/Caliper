@@ -46,6 +46,9 @@ class ViewController: UIViewController {
         session.pause()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        session.run(sessionConfig, options: [.resetTracking, .removeExistingAnchors])
+    }
     //MARK: -  Action Methods
     
     @IBAction func startAndStopTapped(_ sender : UIButton){
@@ -67,7 +70,7 @@ class ViewController: UIViewController {
         isMeasuring = false
         currentLine?.removeFromParentNode()
         currentLine  = nil
-        
+        updateResultLabel(0.0)
         //To clear all Nodes
         sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
             node.removeFromParentNode() }

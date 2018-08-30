@@ -20,6 +20,7 @@
 		41091A0121340F3000F886BB /* ARSCNView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41091A0021340F2F00F886BB /* ARSCNView+Extension.swift */; };
 		4421AB922137C14B0089959A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4421AB912137C14B0089959A /* DataManager.swift */; };
 		4421AB942137CB390089959A /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4421AB932137CB390089959A /* Measurement.swift */; };
+		4438D7BD2137DFB800887893 /* MeasurementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4438D7BC2137DFB800887893 /* MeasurementsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		41091A0021340F2F00F886BB /* ARSCNView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARSCNView+Extension.swift"; sourceTree = "<group>"; };
 		4421AB912137C14B0089959A /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		4421AB932137CB390089959A /* Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measurement.swift; sourceTree = "<group>"; };
+		4438D7BC2137DFB800887893 /* MeasurementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				31C3FF34212EFE8D000D100E /* ViewController.swift */,
+				4438D7BC2137DFB800887893 /* MeasurementsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				410919FD21340A0B00F886BB /* Line.swift in Sources */,
 				319531CA2137F4DB006C2CDF /* DraggableButton.swift in Sources */,
 				4421AB942137CB390089959A /* Measurement.swift in Sources */,
+				4438D7BD2137DFB800887893 /* MeasurementsViewController.swift in Sources */,
 				31C3FF3E212EFE8E000D100E /* CylinderLine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
