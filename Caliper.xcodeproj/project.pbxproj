@@ -17,6 +17,8 @@
 		410919FD21340A0B00F886BB /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410919FC21340A0B00F886BB /* Line.swift */; };
 		410919FF21340E2C00F886BB /* SCNVector+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410919FE21340E2C00F886BB /* SCNVector+Extension.swift */; };
 		41091A0121340F3000F886BB /* ARSCNView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41091A0021340F2F00F886BB /* ARSCNView+Extension.swift */; };
+		4421AB922137C14B0089959A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4421AB912137C14B0089959A /* DataManager.swift */; };
+		4421AB942137CB390089959A /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4421AB932137CB390089959A /* Measurement.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		410919FC21340A0B00F886BB /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		410919FE21340E2C00F886BB /* SCNVector+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector+Extension.swift"; sourceTree = "<group>"; };
 		41091A0021340F2F00F886BB /* ARSCNView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARSCNView+Extension.swift"; sourceTree = "<group>"; };
+		4421AB912137C14B0089959A /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		4421AB932137CB390089959A /* Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measurement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,8 @@
 			children = (
 				410919FC21340A0B00F886BB /* Line.swift */,
 				31C3FF37212EFE8D000D100E /* CylinderLine.swift */,
+				4421AB912137C14B0089959A /* DataManager.swift */,
+				4421AB932137CB390089959A /* Measurement.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -178,8 +184,10 @@
 				410919FF21340E2C00F886BB /* SCNVector+Extension.swift in Sources */,
 				31C3FF3C212EFE8E000D100E /* ViewController.swift in Sources */,
 				41091A0121340F3000F886BB /* ARSCNView+Extension.swift in Sources */,
+				4421AB922137C14B0089959A /* DataManager.swift in Sources */,
 				31C3FF14212EFB91000D100E /* AppDelegate.swift in Sources */,
 				410919FD21340A0B00F886BB /* Line.swift in Sources */,
+				4421AB942137CB390089959A /* Measurement.swift in Sources */,
 				31C3FF3E212EFE8E000D100E /* CylinderLine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
