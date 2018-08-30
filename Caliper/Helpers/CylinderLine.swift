@@ -1,11 +1,3 @@
-//
-//  CylinderLine.swift
-//  GGKPlanDetection
-//
-//  Created by Bhanuprasad Gollapudi on 23/08/18.
-//  Copyright © 2018 Bhanuprasad Gollapudi. All rights reserved.
-//
-
 import SceneKit
 
 class CylinderLine: SCNNode {
@@ -29,7 +21,7 @@ class CylinderLine: SCNNode {
         let nodeCyl = SCNNode(geometry: cyl )
         nodeCyl.position.y = -height/2
         zAlign.addChildNode(nodeCyl)
-        
+        zAlign.name = "my name"
         addChildNode(zAlign)
         
         constraints = [SCNLookAtConstraint(target: nodeV2)]

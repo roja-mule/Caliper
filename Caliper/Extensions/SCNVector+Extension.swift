@@ -1,11 +1,3 @@
-//
-//  SCNVector+Extension.swift
-//  Caliper
-//
-//  Created by Bhanuprasad Gollapudi on 27/08/18.
-//  Copyright © 2018 GGK. All rights reserved.
-//
-
 import Foundation
 import ARKit
 

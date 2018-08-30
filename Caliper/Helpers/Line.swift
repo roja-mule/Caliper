@@ -1,10 +1,3 @@
-//
-//  Line.swift
-//  Caliper
-//
-//  Created by Bhanuprasad Gollapudi on 27/08/18.
-//  Copyright © 2018 GGK. All rights reserved.
-//
 
 import Foundation
 import ARKit
@@ -16,7 +9,7 @@ final class Line {
     fileprivate var endNode: SCNNode!
     fileprivate var text: SCNText!
     fileprivate var textNode: SCNNode!
-    fileprivate var lineNode: SCNNode?
+    var lineNode: SCNNode?
     
     fileprivate let sceneView: ARSCNView!
     fileprivate let startVector: SCNVector3!
@@ -72,7 +65,6 @@ extension Line {
     func distance(to vector: SCNVector3) -> String {
         let cm = startVector.distance(receiver: vector) * 100.0
         let inch = cm * 0.3937007874
-        
         return String(format: "%.2f cm / %.2f\"", cm, inch)
     }
     

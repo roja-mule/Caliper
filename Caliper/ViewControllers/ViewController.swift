@@ -4,6 +4,8 @@ import ARKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var startAndEndButton: UIButton!
+    
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var aimLabel: UILabel!
@@ -14,10 +16,14 @@ class ViewController: UIViewController {
     
     fileprivate let session = ARSession()
     fileprivate let vectorZero = SCNVector3()
-    fileprivate var isMeasuring = false
     fileprivate var startValue = SCNVector3()
     fileprivate var endValue = SCNVector3()
     fileprivate var currentLine: Line?
+    fileprivate var isMeasuring = false{
+        didSet{
+            startAndEndButton.isSelected = isMeasuring
+        }
+    }
     
     //MARK: - ViewLifeCycle -
     
@@ -25,6 +31,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         setupScene()
+        _ = DataManager.shared.getData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -41,27 +48,78 @@ class ViewController: UIViewController {
     
     //MARK: -  Action Methods
     
-    @IBAction func startTapped(_ sender: UIButton){
-        resetValues()
-        isMeasuring = true
-        
-      //  currentLine?.removeFromParentNode()
-        
-        if let startPos = sceneView.realWorldVector(screenPosition: view.center) {
-            currentLine = Line(sceneView: sceneView, startVector: startPos)
+    @IBAction func startAndStopTapped(_ sender : UIButton){
+        if isMeasuring{
+            currentLine?.lineNode?.name = currentLine?.distance(to: endValue)
+            isMeasuring = false
+        }else{
+            resetValues()
+            isMeasuring = true
+            //  currentLine?.removeFromParentNode()
+            if let startPos = sceneView.realWorldVector(screenPosition: view.center) {
+                currentLine = Line(sceneView: sceneView, startVector: startPos)
+            }
         }
     }
     
-    @IBAction func endTapped(_ sender: UIButton){
-        isMeasuring = false
-    }
-    
     @IBAction func clearTapped(_ sender : UIButton){
+        //To clear only one node
         isMeasuring = false
         currentLine?.removeFromParentNode()
         currentLine  = nil
+        
+        //To clear all Nodes
+        sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
+            node.removeFromParentNode() }
+        
+    }
+    
+    func addPanGestureToStartAndStopButton(){
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(draggedView))
+        startAndEndButton.isUserInteractionEnabled = true
+        startAndEndButton.addGestureRecognizer(panGesture)
+    }
+    
+    func addTapGestureToScene(){
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(sceneViewTapped))
+        tapGesture.numberOfTouchesRequired = 1
+        tapGesture.numberOfTapsRequired = 1
+        sceneView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func sceneViewTapped(_ sender : UITapGestureRecognizer){
+        let location: CGPoint = sender.location(in: self.view)
+        let hits = sceneView.hitTest(location, options: nil)
+        if let textNode = hits.first?.node.geometry as? SCNText,let text = textNode.string as? String {
+            showSaveAlert(with: text)
+        }
+    }
+    
+    func showSaveAlert(with measurement : String){
+        let alertController = UIAlertController(title: "Save Measurement", message: "", preferredStyle: .alert)
+        alertController.addTextField { (textField : UITextField!) -> Void in
+            textField.placeholder = "Enter Name"
+        }
+        let saveAction = UIAlertAction(title: "Save", style: .default, handler: { alert -> Void in
+            guard let textField = alertController.textFields?[0] else{return}
+            DataManager.shared.insert(name: textField.text ?? "", valueIncm: measurement)
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { (action : UIAlertAction!) -> Void in })
+        alertController.addAction(saveAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    
+    @objc func draggedView(_ sender:UIPanGestureRecognizer){
+        self.view.bringSubview(toFront: startAndEndButton)
+        let translation = sender.translation(in: self.view)
+        startAndEndButton.center = CGPoint(x: startAndEndButton.center.x + translation.x, y: startAndEndButton.center.y + translation.y)
+        sender.setTranslation(CGPoint.zero, in: self.view)
     }
 }
+
 extension ViewController {
     
     //MARK: - Custom Methods
@@ -73,6 +131,9 @@ extension ViewController {
         session.run(sessionConfig, options: [.resetTracking, .removeExistingAnchors])
         
         resetValues()
+        addPanGestureToStartAndStopButton()
+        
+        addTapGestureToScene()
     }
     
     func resetValues() {

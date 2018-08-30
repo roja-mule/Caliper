@@ -36,30 +36,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9nW-ez-v93">
                                 <rect key="frame" x="10" y="594" width="355" height="33"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pLF-C4-udD">
-                                        <rect key="frame" x="0.0" y="0.0" width="118.5" height="33"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                        <size key="titleShadowOffset" width="0.0" height="0.10000000000000001"/>
-                                        <state key="normal" title="Start">
-                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="startTapped:" destination="BV1-FR-VrT" eventType="touchUpInside" id="F9i-dj-bEy"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bM9-Mx-lSN">
-                                        <rect key="frame" x="118.5" y="0.0" width="118" height="33"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                        <size key="titleShadowOffset" width="0.0" height="0.10000000000000001"/>
-                                        <state key="normal" title="End">
-                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="endTapped:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Dxk-Db-iJo"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEA-hU-w2N">
-                                        <rect key="frame" x="236.5" y="0.0" width="118.5" height="33"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="33"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                         <size key="titleShadowOffset" width="0.0" height="0.10000000000000001"/>
                                         <state key="normal" title="Clear">
@@ -73,13 +51,26 @@
                             </stackView>
                             <activityIndicatorView contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="YFt-kV-4eh">
                                 <rect key="frame" x="163" y="309" width="50" height="50"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="0qy-yZ-Luc"/>
                                     <constraint firstAttribute="height" constant="50" id="dcI-V1-yDT"/>
                                 </constraints>
                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pLF-C4-udD">
+                                <rect key="frame" x="0.0" y="515" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <size key="titleShadowOffset" width="0.0" height="0.10000000000000001"/>
+                                <state key="normal" image="img_indicator_enable">
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <state key="selected" image="img_indicator_disable"/>
+                                <connections>
+                                    <action selector="startAndStopTapped:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Sys-aw-F4h"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -106,6 +97,7 @@
                         <outlet property="aimLabel" destination="N6O-Gc-DPX" id="HkV-Cx-B8j"/>
                         <outlet property="indicator" destination="YFt-kV-4eh" id="nfR-FH-WVb"/>
                         <outlet property="sceneView" destination="bbI-6O-hUo" id="tsO-BP-vbE"/>
+                        <outlet property="startAndEndButton" destination="pLF-C4-udD" id="pCE-vK-56O"/>
                         <outlet property="statusLabel" destination="PaV-11-jji" id="say-T0-KNZ"/>
                     </connections>
                 </viewController>
@@ -114,4 +106,8 @@
             <point key="canvasLocation" x="117.59999999999999" y="117.39130434782609"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="img_indicator_disable" width="202" height="202"/>
+        <image name="img_indicator_enable" width="202" height="202"/>
+    </resources>
 </document>
